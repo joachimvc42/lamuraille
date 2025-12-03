@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Restaurant La Muraille – Nyon | Menu &amp; Réservation</title>
+  <meta name="description" content="Restaurant La Muraille à Nyon : filets de boeuf sur pierre, filets de perche, tartare, desserts maison. Horaires d'ouverture, menu, réservation." />
+  <style>
+    /* Couleurs et variables de thème */
+    :root {
+      --bg: #f9f9f9;
+      --fg: #333;
+      --accent: #a4773a;
+      --muted: #666;
+      --card-bg: #fff;
+      --border: #e5e5e5;
+      --max-width: 1200px;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      color: var(--fg);
+      background: var(--bg);
+      overflow-x: hidden;
+    }
+
+    /* En-tête */
+    header {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    header nav a {
+      margin-left: 20px;
+      color: var(--fg);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    header nav a.button {
+      padding: 8px 16px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 30px;
+    }
+
+    /* Section héros */
+    .hero {
+      position: relative;
+      background: url('https://img3.restaurantguru.com/ra7f-La-Muraille-meals-2025-09-3.jpg') center/cover no-repeat;
+      color: #fff;
+      text-align: center;
+      padding: 120px 20px;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+    }
+    .hero .content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      margin: 0 0 10px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .hero .cta {
+      padding: 12px 24px;
+      background: var(--accent);
+      border-radius: 30px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Section générique */
+    section {
+      padding: 60px 20px;
+    }
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    /* Effet fade-in : éléments se dévoilent au scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* À propos */
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .about .text {
+      flex: 1 1 400px;
+    }
+    .about .image {
+      flex: 1 1 400px;
+    }
+    .about img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    /* Menu */
+    .menu-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .menu-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    .menu-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .menu-item .content {
+      padding: 15px;
+    }
+    .menu-item h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+    .menu-item p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .price {
+      margin-top: 10px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* Galerie */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .gallery img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* Contact & carte */
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .contact .info {
+      flex: 1 1 300px;
+    }
+    .contact iframe {
+      flex: 2 1 400px;
+      min-height: 300px;
+      border: 0;
+      border-radius: 8px;
+    }
+
+    /* Pied de page */
+    footer {
+      background: var(--card-bg);
+      color: var(--muted);
+      text-align: center;
+      padding: 20px 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 80px 20px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="logo">La Muraille</div>
+    <nav>
+      <a href="#about">À propos</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Galerie</a>
+      <a href="#contact" class="button">Réserver</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="content">
+    <h1>Bienvenue à La Muraille</h1>
+    <p>Filets de boeuf, filets de perche et desserts maison servis dans un cadre chaleureux à Nyon.</p>
+    <a href="tel:+41225595700" class="cta">Réserver par téléphone</a>
+  </div>
+</section>
+
+<section id="about" class="fade-in">
+  <div class="container about">
+    <div class="text">
+      <h2>À propos</h2>
+      <p>Situé à Nyon, le restaurant La Muraille vous accueille avec une cuisine européenne, française et italienne. Notre ambiance conviviale et nos spécialités vous garantissent une expérience culinaire mémorable. Profitez de nos filets de boeuf cuits sur pierre chaude, de nos filets de perche du Léman et de nos desserts maison, notamment le tiramisu.</p>
+    </div>
+    <div class="image">
+      <img src="https://img3.restaurantguru.com/r88c-La-Muraille-design-2025-09-1.jpg" alt="Intérieur du restaurant" />
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="fade-in">
+  <div class="container">
+    <h2>Notre Menu</h2>
+    <div class="menu-items">
+      <div class="menu-item">
+        <img src="https://img3.restaurantguru.com/ra7f-La-Muraille-meals-2025-09-3.jpg" alt="Filet de boeuf sur pierre" />
+        <div class="content">
+          <h3>Filet de boeuf sur pierre</h3>
+          <p>Pièce de boeuf cuite sur pierre chaude, accompagnée de sauces maison et frites croustillantes.</p>
+          <div class="price">39 CHF</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://img3.restaurantguru.com/r06b-La-Muraille-dishes-2025-09-2.jpg" alt="Filets de perche du Léman" />
+        <div class="content">
+          <h3>Filets de perche du Léman</h3>
+          <p>Filets de perche fraîchement pêchés, servis avec une sauce citronnée et des légumes de saison.</p>
+          <div class="price">36 CHF</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://img3.restaurantguru.com/r535-La-Muraille-food-2025-09-1.jpg" alt="Tiramisu maison" />
+        <div class="content">
+          <h3>Tiramisu maison</h3>
+          <p>Notre célèbre tiramisu, crémeux et savoureux, comparé aux meilleurs d'Italie.</p>
+          <div class="price">12 CHF</div>
+        </div>
+      </div>
+      <div class="menu-item">
+        <img src="https://img3.restaurantguru.com/r879-La-Muraille-dishes-2025-09-3.jpg" alt="Dessert glacé" />
+        <div class="content">
+          <h3>Dessert glacé</h3>
+          <p>Boule de glace vanille ou fraise, servie avec gaufrette et coulis de fruits rouges.</p>
+          <div class="price">10 CHF</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="fade-in">
+  <div class="container">
+    <h2>Galerie</h2>
+    <div class="gallery">
+      <img src="https://img3.restaurantguru.com/ra7f-La-Muraille-meals-2025-09-3.jpg" alt="Steak sur pierre" />
+      <img src="https://img3.restaurantguru.com/r535-La-Muraille-food-2025-09-1.jpg" alt="Assortiment de desserts" />
+      <img src="https://img3.restaurantguru.com/r06b-La-Muraille-dishes-2025-09-2.jpg" alt="Salade fraîche" />
+      <img src="https://img3.restaurantguru.com/r879-La-Muraille-dishes-2025-09-3.jpg" alt="Dessert glacé" />
+      <img src="https://img3.restaurantguru.com/r88c-La-Muraille-design-2025-09-1.jpg" alt="Salle du restaurant" />
+      <img src="https://img3.restaurantguru.com/ra7f-La-Muraille-meals-2025-09-3.jpg" alt="Plat signature" />
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="fade-in">
+  <div class="container contact">
+    <div class="info">
+      <h2>Contact &amp; Accès</h2>
+      <p><strong>Adresse :</strong> Rue de la Combe 11, 1260 Nyon, Suisse</p>
+      <p><strong>Téléphone :</strong> <a href="tel:+41225595700">+41 22 559 57 00</a></p>
+      <p><strong>Horaires :</strong> Lundi–Samedi 09:00–23:00<br>Dimanche 09:00–15:00</p>
+      <p><strong>Réseaux sociaux :</strong> <a href="https://www.facebook.com/lamuraillenyon/" target="_blank" rel="noopener">Facebook</a></p>
+    </div>
+    <iframe src="https://www.google.com/maps?q=Rue%20de%20la%20Combe%2011,%201260%20Nyon&amp;output=embed" allowfullscreen loading="lazy"></iframe>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> La Muraille · Nyon — Tous droits réservés
+</footer>
+
+<script>
+// Script pour l'effet de fade-in via Intersection Observer
+document.addEventListener('DOMContentLoaded', function() {
+  const faders = document.querySelectorAll('.fade-in');
+  const options = { threshold: 0.2 };
+  const observer = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+  faders.forEach(fader => {
+    observer.observe(fader);
+  });
+  // Mise à jour de l'année en pied de page
+  document.getElementById('year').textContent = new Date().getFullYear();
+});
+</script>
+
+</body>
+</html>
